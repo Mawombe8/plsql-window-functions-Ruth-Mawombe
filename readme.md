@@ -1,10 +1,12 @@
-PROBLEM DEFINITION
+## PROBLEM DEFINITION
 
 Business context: A convinience store's sales and sales department in the retail industry.
+
 Data Challenge:The store struggles in knowing and understand the product demanded on the market,sales performance,monthly sales growth and frequent customers in-order to optimize inventory and the overall performance of the store.
+
 Expected Outcome: Enumerating the top products per region, a clear segment for customers including the customer frequency and monthly sales growth for marketing.
 
-SUCCESS CRITERIA 
+## SUCCESS CRITERIA 
 
 We will define these measurable goals using the windows functions.
   Top 5 products per region using RANK() function.
@@ -13,7 +15,7 @@ We will define these measurable goals using the windows functions.
   Customer quartiles using NTILE(4) function.
   3-month moving averages using AVG() and OVER() functions.
 
-DATABASE SCHEMA
+## DATABASE SCHEMA
 ## Creating table CUSTOMERS and after inserting some values
  Query: create table CUSTOMERS (customer_id int primary key, name varchar(30), region varchar(30));
 <img width="1920" height="383" alt="Screenshot (134)" src="https://github.com/user-attachments/assets/c1b04846-2ea6-4d07-a1ed-f767ea75d340" />
@@ -49,7 +51,7 @@ GROUP BY customer_id;
 Interpretation: We observe the classifying of customers into quartiles (Q1= UPPER 25%) and their cumulative distribution with reference to 
 their total revenue of the products they purchased in the convinience store which aids in improving the store's performance.
 
-RESULTS ANALYSIS
+## RESULTS ANALYSIS
 
 Descriptive (What happened?)
 Foods products was the most purchased.
@@ -64,20 +66,16 @@ Develop bundles for electronics to increase frequency.
 Analyse the September 18th transaction to understand if it implements a sustainable business.
 Improve marketing of regional top products.
 
-REFERENCES
+## REFERENCES
 
-Computer science s6 student's book ,   
-https://youtu.be/Ww71knvhQ-s?si=AbPDAPB9vy_UnNZz ,  
-https://mode.com/sql-tutorial/sql-window-functions ,   
-https://www.geeksforgeeks.org/sql/window-functions-in-sql/ ,   
-https://dev.mysql.com/doc/refman/8.4/en/window-functions-usage.html ,  
-uuuuuuuuuuuuuuuuuuu
+
 	Computer science s6 student's book ,   
 	https://youtu.be/Ww71knvhQ-s?si=AbPDAPB9vy_UnNZz ,  
 	https://mode.com/sql-tutorial/sql-window-functions ,   
-	https://www.geeksforgeeks.org/sql/window-functions-in-sql/ ,   
+	[L-G-0012901204-0037023834.pdf](https://github.com/user-attachments/files/22594786/L-G-0012901204-0037023834.pdf)
 	https://dev.mysql.com/doc/refman/8.4/en/window-functions-usage.html ,
-
-
-
-
+	https://www.datacamp.com/cheat-sheet/sql-window-functions-cheat-sheet, 
+	Jonathan Gennick, SQL Pocket Guide, 3rd Edition,  
+	[Chapter 01 - SQL Windowing.sql](https://github.com/user-attachments/files/22593196/Chapter.01.-.SQL.Windowing.sql), 
+	
+	https://www.geeksforgeeks.org/sql/window-functions-in-sql/ ,  
