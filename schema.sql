@@ -52,3 +52,17 @@ INSERT INTO transactions VALUES
 (7, 1005, 2003, '22-09-2025', 800),
 (8, 1003, 2004, '19-09-2025', 5000);
 
+-- Running total trend
+SELECT
+    TO_CHAR(TO_DATE(sale_date, 'DD-MM-YYYY'), 'MM-YYYY') AS sale_month,
+    SUM(TO_NUMBER(amount)) AS total_sales,
+    SUM(SUM(TO_NUMBER(amount))) OVER (ORDER BY TO_CHAR(TO_DATE(sale_date, 'DD-MM-YYYY'), 'MM-YYYY')) AS running_total,
+    AVG(SUM(TO_NUMBER(amount))) OVER (
+        ORDER BY TO_CHAR(TO_DATE(sale_date, 'DD-MM-YYYY'), 'MM-YYYY')
+        ROWS BETWEEN 2 PRECEDING AND CURRENT ROW
+    ) AS three_month_moving_avg,
+    MIN(SUM(TO_NUMBER(amount))) OVER (ORDER BY TO_CHAR(TO_DATE(sale_date, 'DD-MM-YYYY'), 'MM-YYYY')) AS min_monthly_sales,
+    MAX(SUM(TO_NUMBER(amount))) OVER (ORDER BY TO_CHAR(TO_DATE(sale_date, 'DD-MM-YYYY'), 'MM-YYYY')) AS max_monthly_sales
+FROM transactions
+GROUP BY TO_CHAR(TO_DATE(sale_date, 'DD-MM-YYYY'), 'MM-YYYY')
+ORDER BY sale_month;
