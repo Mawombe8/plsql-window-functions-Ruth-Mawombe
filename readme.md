@@ -36,7 +36,7 @@ SELECT customer_id, SUM(amount) AS total_revenue,
        RANK() OVER (ORDER BY SUM(amount) DESC) AS revenue_rank,
        DENSE_RANK() OVER (ORDER BY SUM(amount) DESC) AS dense_rank,
        PERCENT_RANK() OVER (ORDER BY SUM(amount) DESC) AS percentage_rank
-FROM transactions
+FROM TRANSACTIONS
 GROUP BY customer_id;
 <img width="1920" height="392" alt="Screenshot (140)" src="https://github.com/user-attachments/assets/3d51712f-ec0f-4725-84a6-147c9e8cbfe7" />
 Interpretation: It shows from the first customer to the last customer according to the revenue or the total revenue they spent in the store.
@@ -45,7 +45,7 @@ Interpretation: It shows from the first customer to the last customer according 
 SELECT customer_id, SUM(amount) AS total_revenue,
        NTILE(4) OVER (ORDER BY SUM(amount) DESC) AS revenue_quartile,
        CUME_DIST() OVER (ORDER BY SUM(amount) DESC) AS cumulative_distribution
-FROM transactions
+FROM TRANSACTIONS
 GROUP BY customer_id;
 <img width="1920" height="431" alt="Screenshot (138)" src="https://github.com/user-attachments/assets/afa3446d-30cd-4442-8ed4-5ccd11a560ae" />
 Interpretation: We observe the classifying of customers into quartiles (Q1= UPPER 25%) and their cumulative distribution with reference to 
@@ -72,10 +72,10 @@ Improve marketing of regional top products.
 	Computer science s6 student's book ,   
 	https://youtu.be/Ww71knvhQ-s?si=AbPDAPB9vy_UnNZz ,  
 	https://mode.com/sql-tutorial/sql-window-functions ,   
-	[L-G-0012901204-0037023834.pdf](https://github.com/user-attachments/files/22594786/L-G-0012901204-0037023834.pdf)
-	https://dev.mysql.com/doc/refman/8.4/en/window-functions-usage.html ,
-	https://www.datacamp.com/cheat-sheet/sql-window-functions-cheat-sheet, 
-	Jonathan Gennick, SQL Pocket Guide, 3rd Edition,  
-	[Chapter 01 - SQL Windowing.sql](https://github.com/user-attachments/files/22593196/Chapter.01.-.SQL.Windowing.sql), 
-	
-	https://www.geeksforgeeks.org/sql/window-functions-in-sql/ ,  
+	[L-G-0012901204-0037023834.pdf](https://github.com/user-attachments/files/22594786/L-G-0012901204-0037023834.pdf) ,  
+	https://dev.mysql.com/doc/refman/8.4/en/window-functions-usage.html ,  
+	https://www.datacamp.com/cheat-sheet/sql-window-functions-cheat-sheet ,  
+	Jonathan Gennick, SQL Pocket Guide, 3rd Edition ,   
+	[Chapter 01 - SQL Windowing.sql](https://github.com/user-attachments/files/22593196/Chapter.01.-.SQL.Windowing.sql) ,    
+	https://medium.com/learning-sql/sql-window-function-visualized-fff1927f00f2 ,  
+	https://www.geeksforgeeks.org/sql/window-functions-in-sql/
