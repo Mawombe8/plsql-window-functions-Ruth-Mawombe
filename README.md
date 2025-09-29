@@ -41,6 +41,23 @@ GROUP BY customer_id;
 <img width="1920" height="392" alt="Screenshot (140)" src="https://github.com/user-attachments/assets/3d51712f-ec0f-4725-84a6-147c9e8cbfe7" />
 Interpretation: It shows from the first customer to the last customer according to the revenue or the total revenue they spent in the store.
 
+## 2. Running total trends
+SELECT
+    TO_CHAR(TO_DATE(sale_date, 'DD-MM-YYYY'), 'MM-YYYY') AS sale_month,
+    SUM(TO_NUMBER(amount)) AS total_sales,
+    SUM(SUM(TO_NUMBER(amount))) OVER (ORDER BY TO_CHAR(TO_DATE(sale_date, 'DD-MM-YYYY'), 'MM-YYYY')) AS running_total,
+    AVG(SUM(TO_NUMBER(amount))) OVER (
+        ORDER BY TO_CHAR(TO_DATE(sale_date, 'DD-MM-YYYY'), 'MM-YYYY')
+        ROWS BETWEEN 2 PRECEDING AND CURRENT ROW
+    ) AS three_month_moving_avg,
+    MIN(SUM(TO_NUMBER(amount))) OVER (ORDER BY TO_CHAR(TO_DATE(sale_date, 'DD-MM-YYYY'), 'MM-YYYY')) AS min_monthly_sales,
+    MAX(SUM(TO_NUMBER(amount))) OVER (ORDER BY TO_CHAR(TO_DATE(sale_date, 'DD-MM-YYYY'), 'MM-YYYY')) AS max_monthly_sales
+FROM transactions
+GROUP BY TO_CHAR(TO_DATE(sale_date, 'DD-MM-YYYY'), 'MM-YYYY')
+ORDER BY sale_month;
+<img width="1408" height="314" alt="Screenshot (141)" src="https://github.com/user-attachments/assets/3462a6f9-53be-4ea9-80db-b4cd25c076c1" />
+
+
 ## 4. Customer segmentation
 SELECT customer_id, SUM(amount) AS total_revenue,
        NTILE(4) OVER (ORDER BY SUM(amount) DESC) AS revenue_quartile,
