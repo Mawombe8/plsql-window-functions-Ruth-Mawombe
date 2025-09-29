@@ -85,7 +85,6 @@ Improve marketing of regional top products.
 
 ## REFERENCES
 
-
 	Computer science s6 student's book ,   
 	https://youtu.be/Ww71knvhQ-s?si=AbPDAPB9vy_UnNZz ,  
 	https://mode.com/sql-tutorial/sql-window-functions ,   
@@ -96,3 +95,7 @@ Improve marketing of regional top products.
 	[Chapter 01 - SQL Windowing.sql](https://github.com/user-attachments/files/22593196/Chapter.01.-.SQL.Windowing.sql) ,    
 	https://medium.com/learning-sql/sql-window-function-visualized-fff1927f00f2 ,  
 	https://www.geeksforgeeks.org/sql/window-functions-in-sql/
+
+
+## Integrity statement
+All sources were properly cited. Implementations and analysis represent original work. No AIgenerated content was copied without attribution or adaptation.
