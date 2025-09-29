@@ -23,7 +23,7 @@ We will define these measurable goals using the windows functions.
 Query: create table PRODUCTS (product_id int primary key, name varchar(30), category varchar(30));
 <img width="1920" height="404" alt="Screenshot (135)" src="https://github.com/user-attachments/assets/0447f09c-b837-468a-882c-03b2e6e716ae" />
 ## Creating table TRANSACTIONS and after inserting some values
-Query: create table TRANSACTIONS (transaction_id int primary key, customer_id int, product_id int, sale_date varchar(30), amount int, 
+Query: create table TRANSACTIONS (transaction_id int primary key, customer_id int, product_id int, sale_date DATE  , amount int, 
 FOREIGN KEY (customer_id) REFERENCES CUSTOMERS(customer_id),FOREIGN KEY (product_id) REFERENCES PRODUCTS(product_id));
 <img width="1920" height="519" alt="Screenshot (137)" src="https://github.com/user-attachments/assets/9d66df70-7fc2-487b-a09f-314c1860e492" />
 
